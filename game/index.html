@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Game</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.birds.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+      @font-face {
+        font-family: "MaplestoryOTFBold";
+        src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFBold.woff")
+          format("woff");
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      h1 {
+        font-family: MaplestoryOTFBold;
+        color: #fcf6f5;
+        font-size: 50px;
+      }
+
+      .content {
+        text-align: center;
+      }
+
+      #score {
+        text-align: right;
+        margin-top: 150px;
+        font-size: 30px;
+        color: #fcf6f5;
+      }
+
+      #modalOpen {
+        background-color: #fcf6f5;
+        width: 200px;
+        height: 100px;
+        border-radius: 20px;
+        margin-top: 180px;
+        font-size: large;
+        font-family: MaplestoryOTFBold;
+        color: #7b9acc;
+        border: #7b9acc;
+      }
+
+      .question {
+        font-size: 20px;
+        color: #fcf6f5;
+      }
+
+      .answer {
+        background-color: #7b9acc;
+        color: #fcf6f5;
+        width: 200px;
+        height: 100px;
+        border-radius: 20px;
+        font-size: large;
+        padding: 20px;
+        font-family: MaplestoryOTFBold;
+        margin: 30px;
+        margin-top: 80px;
+        border: 1px solid #fcf6f5;
+        cursor: pointer;
+      }
+
+      /* Modal styles */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+
+      .modal-content {
+        background-color: #7b9acc;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        border-radius: 10px;
+        font-family: MaplestoryOTFBold;
+        height: 500px;
+      }
+
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .close:hover,
+      .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrapper">
+        <div class="content">
+          <h1>Quiz Game</h1>
+          <button id="modalOpen">Game Start</button>
+
+          <!-- The Modal -->
+          <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <p class="question" id="question">
+                Q1: 인터랙티브 미디어에 대한 설명으로 옳은 것은?
+              </p>
+              <button class="answer" onclick="checkAnswer(1)">정답1</button>
+              <button class="answer" onclick="checkAnswer(0)">정답2</button>
+              <p id="score">점수: 0</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Initialize Vanta.js
+      VANTA.BIRDS({
+        el: "body",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 650.0,
+        minWidth: 200.0,
+        scale: 1.0,
+        scaleMobile: 1.0,
+        backgroundColor: 0x7b9acc,
+        color1: 0xfcf6f5,
+        color2: 0xfcf6f5,
+      });
+
+      // Get the modal
+      var modal = document.getElementById("myModal");
+
+      // Get the button that opens the modal
+      var btn = document.getElementById("modalOpen");
+
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("close")[0];
+
+      // When the user clicks the button, open the modal
+      btn.onclick = function () {
+        resetQuiz();
+        modal.style.display = "block";
+        displayQuestion();
+      };
+
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function () {
+        modal.style.display = "none";
+      };
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
+
+      var questions = [
+        {
+          q: "인터랙티브 미디어에 대한 설명으로 옳은 것은?",
+          a: ["정답1", "정답2"],
+          correct: 0,
+        },
+        {
+          q: "HTML의 약자는?",
+          a: ["Hyper Text Markup Language", "Home Tool Markup Language"],
+          correct: 0,
+        },
+        {
+          q: "CSS의 약자는?",
+          a: ["Cascading Style Sheets", "Colorful Style Sheets"],
+          correct: 0,
+        },
+        {
+          q: "JavaScript는 무엇을 위해 사용되는가?",
+          a: ["웹 개발", "데이터 분석"],
+          correct: 0,
+        },
+        {
+          q: "DOM은 무엇의 약자인가?",
+          a: ["Document Object Model", "Display Object Management"],
+          correct: 0,
+        },
+        {
+          q: "HTTP의 약자는?",
+          a: ["HyperText Transfer Protocol", "Hyperlink Transfer Protocol"],
+          correct: 0,
+        },
+        {
+          q: "브라우저가 HTML을 해석하는 과정을 무엇이라고 하는가?",
+          a: ["렌더링", "컴파일링"],
+          correct: 0,
+        },
+        {
+          q: "CSS에서 색상을 지정하는 방법이 아닌 것은?",
+          a: ["hex 코드", "pixel 코드"],
+          correct: 1,
+        },
+        {
+          q: "JavaScript 배열 메소드 중 배열의 끝에 요소를 추가하는 것은?",
+          a: ["push()", "pop()"],
+          correct: 0,
+        },
+        {
+          q: "CSS에서 Flexbox는 무엇을 위한 레이아웃 모델인가?",
+          a: ["1차원 레이아웃", "2차원 레이아웃"],
+          correct: 0,
+        },
+      ];
+
+      var currentQuestion = 0;
+      var score = 0;
+
+      function resetQuiz() {
+        currentQuestion = 0;
+        score = 0;
+        document.getElementById("score").innerText = "점수: " + score;
+      }
+
+      function displayQuestion() {
+        document.getElementById("question").innerText =
+          "Q" + (currentQuestion + 1) + ": " + questions[currentQuestion].q;
+        var answers = document.getElementsByClassName("answer");
+        for (var i = 0; i < answers.length; i++) {
+          answers[i].innerText = questions[currentQuestion].a[i];
+          answers[i].setAttribute(
+            "onclick",
+            "checkAnswer(" +
+              (i === questions[currentQuestion].correct ? 1 : 0) +
+              ")"
+          );
+        }
+      }
+
+      function checkAnswer(isCorrect) {
+        if (isCorrect) {
+          score++;
+        }
+        document.getElementById("score").innerText = "점수: " + score;
+        currentQuestion++;
+        if (currentQuestion < questions.length) {
+          displayQuestion();
+        } else {
+          Swal.fire({
+            title: "퀴즈가 완료되었습니다!",
+            text: `최종 점수 : ${score}`,
+            icon: "success",
+          });
+
+          modal.style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>

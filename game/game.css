@@ -1,0 +1,118 @@
+@font-face {
+  font-family: "MaplestoryOTFBold";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFBold.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+#gameTitle {
+  font-family: MaplestoryOTFBold;
+  color: #fcf6f5;
+  font-size: 50px;
+}
+.content {
+  text-align: center;
+}
+
+#score {
+  text-align: right;
+  margin-top: 150px;
+  font-size: 30px;
+  color: #fcf6f5;
+}
+
+#modalOpen {
+  background-color: #fcf6f5;
+  width: 200px;
+  height: 100px;
+  border-radius: 20px;
+  font-size: large;
+  font-family: MaplestoryOTFBold;
+  color: #7b9acc;
+  border: #7b9acc;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, 250%);
+}
+
+.question {
+  font-size: 20px;
+  color: #fcf6f5;
+}
+
+.answer {
+  background-color: #7b9acc;
+  color: #fcf6f5;
+  width: 200px;
+  height: 100px;
+  border-radius: 20px;
+  font-size: large;
+  padding: 20px;
+  font-family: MaplestoryOTFBold;
+  margin: 30px;
+  margin-top: 80px;
+  border: 1px solid #fcf6f5;
+  cursor: pointer;
+}
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #7b9acc;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  border-radius: 10px;
+  font-family: MaplestoryOTFBold;
+  height: 500px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Ranking styles */
+#ranking {
+  position: fixed;
+  top: 10%;
+  right: 0;
+  width: 200px;
+  background-color: #fcf6f5;
+  color: #7b9acc;
+  border: 1px solid #7b9acc;
+  border-radius: 10px 0 0 10px;
+  padding: 10px;
+  font-family: MaplestoryOTFBold;
+  text-align: left;
+}

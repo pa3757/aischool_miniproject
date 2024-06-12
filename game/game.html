@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Game</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.birds.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="game.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrapper">
+        <div class="content">
+          <div id="gameTitle">Quiz Game</div>
+          <button id="modalOpen">Game Start</button>
+
+          <!-- The Modal -->
+          <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <p class="question" id="question">
+                Q1: 인터랙티브 미디어에 대한 설명으로 옳은 것은?
+              </p>
+              <button class="answer" onclick="checkAnswer(1)">정답1</button>
+              <button class="answer" onclick="checkAnswer(0)">정답2</button>
+              <p id="score">점수: 0</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ranking Section -->
+    <div id="ranking">
+      <h3>실시간 랭킹</h3>
+      <ol id="rankingList">
+        <!-- 랭킹 항목들이 여기에 추가됩니다 -->
+      </ol>
+    </div>
+
+    <script src="game.js"></script>
+  </body>
+</html>

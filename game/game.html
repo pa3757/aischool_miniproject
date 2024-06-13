@@ -14,6 +14,7 @@
       <div class="wrapper">
         <div class="content">
           <div id="gameTitle">Quiz Game</div>
+
           <button id="modalOpen">Game Start</button>
 
           <!-- The Modal -->
@@ -22,23 +23,28 @@
             <div class="modal-content">
               <span class="close">&times;</span>
               <p class="question" id="question">
-                Q1: 인터랙티브 미디어에 대한 설명으로 옳은 것은?
+                Q1: 인터랙티브 미디어란 무엇을 의미하나요?
               </p>
-              <button class="answer" onclick="checkAnswer(1)">정답1</button>
-              <button class="answer" onclick="checkAnswer(0)">정답2</button>
+              <div id="answerBox">
+                <button class="answer" onclick="checkAnswer(1)">
+                  사용자가 콘텐츠와 상호작용할 수 있는 미디어
+                </button>
+                <button class="answer" onclick="checkAnswer(0)">
+                  일방적으로 전달되는 미디어
+                </button>
+              </div>
               <p id="score">점수: 0</p>
             </div>
           </div>
+          <!-- Ranking Section -->
+          <div id="ranking">
+            <h3>실시간 랭킹</h3>
+            <ul id="rankingList">
+              <!-- 랭킹 항목들이 여기에 추가됩니다 -->
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-
-    <!-- Ranking Section -->
-    <div id="ranking">
-      <h3>실시간 랭킹</h3>
-      <ol id="rankingList">
-        <!-- 랭킹 항목들이 여기에 추가됩니다 -->
-      </ol>
     </div>
 
     <script src="game.js"></script>

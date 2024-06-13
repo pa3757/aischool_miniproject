@@ -12,6 +12,16 @@
   font-weight: 400;
   font-style: normal;
 }
+@keyframes slideIn {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 #gameTitle {
   font-family: MaplestoryOTFBold;
   color: #fcf6f5;
@@ -23,7 +33,7 @@
 
 #score {
   text-align: right;
-  margin-top: 150px;
+  margin-top: 100px;
   font-size: 30px;
   color: #fcf6f5;
 }
@@ -44,23 +54,35 @@
 }
 
 .question {
-  font-size: 20px;
-  color: #fcf6f5;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+#answerBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* 버튼 사이의 간격 조정 */
+  flex-wrap: wrap; /* 버튼이 컨테이너 너비를 초과할 경우 줄 바꿈 */
+  margin-top: 50px;
 }
 
 .answer {
-  background-color: #7b9acc;
-  color: #fcf6f5;
-  width: 200px;
-  height: 100px;
-  border-radius: 20px;
-  font-size: large;
-  padding: 20px;
-  font-family: MaplestoryOTFBold;
-  margin: 30px;
-  margin-top: 80px;
-  border: 1px solid #fcf6f5;
+  background-color: #e7f0fd;
+  border: 1px solid #b3cde8;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 20px;
   cursor: pointer;
+  height: 150px;
+  width: 300px;
+  margin: 10px;
+  font-family: MaplestoryOTFBold;
+  box-sizing: border-box; /* 패딩과 테두리를 포함한 너비 계산 */
+}
+
+.answer:hover {
+  background-color: #d1e3f8;
 }
 
 /* Modal styles */
@@ -73,6 +95,8 @@
   width: 100%;
   height: 100%;
   overflow: auto;
+  overflow-x: hidden;
+  overflow-y: hidden;
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.4);
 }
@@ -85,7 +109,8 @@
   width: 80%;
   border-radius: 10px;
   font-family: MaplestoryOTFBold;
-  height: 500px;
+  height: 450px;
+  animation: slideIn 1s ease-out;
 }
 
 .close {

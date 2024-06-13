@@ -24,7 +24,7 @@
 }
 #gameTitle {
   font-family: MaplestoryOTFBold;
-  color: #fcf6f5;
+  color: #7b9acc;
   font-size: 50px;
 }
 .content {
@@ -35,27 +35,32 @@
   text-align: right;
   margin-top: 100px;
   font-size: 30px;
-  color: #fcf6f5;
+  color: #7b9acc;
 }
 
 #modalOpen {
-  background-color: #fcf6f5;
+  background-color: #7b9acc;
   width: 200px;
   height: 100px;
   border-radius: 20px;
   font-size: large;
   font-family: MaplestoryOTFBold;
-  color: #7b9acc;
+  color: #fcf6f5;
   border: #7b9acc;
   top: 50%;
   left: 50%;
   position: absolute;
   transform: translate(-50%, 250%);
+  cursor: pointer;
+}
+#modalOpen:hover {
+  background-color: #b3cde8;
 }
 
 .question {
   font-size: 30px;
   margin-bottom: 20px;
+  color: #7b9acc;
 }
 
 #answerBox {
@@ -70,6 +75,7 @@
 .answer {
   background-color: #e7f0fd;
   border: 1px solid #b3cde8;
+  color: #7b9acc;
   border-radius: 10px;
   padding: 10px;
   font-size: 20px;
@@ -77,7 +83,7 @@
   height: 150px;
   width: 300px;
   margin: 10px;
-  font-family: MaplestoryOTFBold;
+  font-family: Pretendard-Regular;
   box-sizing: border-box; /* 패딩과 테두리를 포함한 너비 계산 */
 }
 
@@ -102,7 +108,7 @@
 }
 
 .modal-content {
-  background-color: #7b9acc;
+  background-color: #fcf6f5;
   margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
@@ -133,8 +139,8 @@
   top: 10%;
   right: 0;
   width: 200px;
-  background-color: #fcf6f5;
-  color: #7b9acc;
+  background-color: #7b9acc;
+  color: #fcf6f5;
   border: 1px solid #7b9acc;
   border-radius: 10px 0 0 10px;
   padding: 10px;

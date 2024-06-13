@@ -8,9 +8,9 @@ VANTA.BIRDS({
   minWidth: 200.0,
   scale: 1.0,
   scaleMobile: 1.0,
-  backgroundColor: 0x7b9acc,
-  color1: 0xfcf6f5,
-  color2: 0xfcf6f5,
+  backgroundColor: 0xfcf6f5,
+  color1: 0x7b9acc,
+  color2: 0x7b9acc,
 });
 
 // Get the modal

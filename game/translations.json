@@ -1,0 +1,22 @@
+{
+    "en": {
+        "login": "Login",
+        "signout": "Logout",
+        "about": "About Interactive",
+        "gallery": "360VR Gallery",
+        "movie": "Interactive Movie",
+        "game": "Quiz Game",
+        "team": "Team",
+        "language": "KO (한국어)"
+    },
+    "ko": {
+        "login": "로그인",
+        "signout": "로그아웃",
+        "about": "인터랙티브 미디어란",
+        "gallery": "360VR 갤러리",
+        "movie": "인터랙티브 영화",
+        "game": "퀴즈 게임",
+        "team": "팀원 소개",
+        "language": "영어 (English)"
+    }
+}

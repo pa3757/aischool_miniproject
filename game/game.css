@@ -47,7 +47,7 @@
   font-family: MaplestoryOTFBold;
   color: #fcf6f5;
   border: #7b9acc;
-  top: 50%;
+  top: 150%;
   left: 50%;
   position: absolute;
   transform: translate(-50%, 250%);
@@ -73,7 +73,7 @@
 }
 
 .answer {
-  background-color: #e7f0fd;
+  background-color: #d1e3f8;
   border: 1px solid #b3cde8;
   color: #7b9acc;
   border-radius: 10px;
@@ -88,7 +88,7 @@
 }
 
 .answer:hover {
-  background-color: #d1e3f8;
+  background-color: #e7f0fd;
 }
 
 /* Modal styles */

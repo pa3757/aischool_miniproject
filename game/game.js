@@ -1,3 +1,32 @@
+// Firebase 설정객체 : 내 firebase 에대한 정보
+const firebaseConfig = {
+  apiKey: "AIzaSyBjPPPPhjM1zdSWRJs0TKYrlne0nTFKb8M",
+  authDomain: "fir-test-2941b.firebaseapp.com",
+  databaseURL: "https://fir-test-2941b-default-rtdb.firebaseio.com",
+  projectId: "fir-test-2941b",
+  storageBucket: "fir-test-2941b.appspot.com",
+  messagingSenderId: "57174928866",
+  appId: "1:57174928866:web:584e0568dd9f9e235a9dbb",
+};
+
+// Firebase 앱 초기화
+const app = firebase.initializeApp(firebaseConfig);
+
+// Firebase 의 실시간 데이터베이스
+const database = firebase.database();
+
+if (sessionStorage.getItem("id")) {
+  // sessionStorge에 id값이 존재하는지 확인
+  document.getElementById("login_out").innerText = "Logout"; // 존재할경우 sidenav의 login을 logout으로변경
+  const logoutBtn = document.getElementById("logoutBtn"); // a태그 가져오기
+  logoutBtn.addEventListener("click", () => {
+    // 이벤트 걸어주기
+    logoutBtn.href = "Login.html"; // 로그아웃버튼일때 이동하고싶은 주소 지정
+    sessionStorage.removeItem("id"); // 세션에 담은 id값 삭제
+    sessionStorage.removeItem("name"); // 세션에 담은 name값 삭제
+  });
+}
+
 // Initialize Vanta.js
 VANTA.BIRDS({
   el: "body",
@@ -23,7 +52,7 @@ let btn = document.getElementById("modalOpen");
 let span = document.getElementsByClassName("close")[0];
 
 // When the user clicks the button, open the modal
-btn.onclick = function () {
+btn.onclick = () => {
   resetQuiz();
   modal.style.display = "block";
   modal.querySelector(".modal-content").classList.add("slideIn");
@@ -31,13 +60,13 @@ btn.onclick = function () {
 };
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function () {
+span.onclick = () => {
   modal.style.display = "none";
   modal.querySelector(".modal-content").classList.remove("slideIn");
 };
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
+window.onclick = (event) => {
   if (event.target == modal) {
     modal.style.display = "none";
     modal.querySelector(".modal-content").classList.remove("slideIn");
@@ -109,14 +138,18 @@ let questions = [
 let currentQuestion = 0;
 let score = 0;
 let ranking = [];
-
-function resetQuiz() {
+const resetQuiz = () => {
   currentQuestion = 0;
   score = 0;
   document.getElementById("score").innerText = "점수: " + score;
-}
+  updateProgressBar();
+};
+const updateProgressBar = () => {
+  let progress = ((currentQuestion + 1) / questions.length) * 100;
+  document.getElementById("progressBar").style.width = progress + "%";
+};
 
-function displayQuestion() {
+const displayQuestion = () => {
   document.getElementById("question").innerText =
     "Q" + (currentQuestion + 1) + ": " + questions[currentQuestion].q;
   let answers = document.getElementsByClassName("answer");
@@ -127,9 +160,9 @@ function displayQuestion() {
       "checkAnswer(" + (i === questions[currentQuestion].correct ? 1 : 0) + ")"
     );
   }
-}
-
-function checkAnswer(isCorrect) {
+  updateProgressBar();
+};
+const checkAnswer = (isCorrect) => {
   if (isCorrect) {
     score++;
   }
@@ -159,31 +192,67 @@ function checkAnswer(isCorrect) {
     }
 
     updateRanking(score);
+    savescore(sessionStorage.getItem("name"), score);
     modal.style.display = "none";
   }
-}
+};
 
-function updateRanking(newScore) {
-  ranking.push(newScore);
-  ranking.sort((a, b) => b - a);
-  ranking = ranking.slice(0, 10); // 상위 10개의 점수만 유지
+const updateRanking = () => {
   let rankingList = document.getElementById("rankingList");
   rankingList.innerHTML = "";
-  ranking.forEach((score, index) => {
+  ranking.forEach((entry, index) => {
     let listItem = document.createElement("p");
     switch (index) {
       case 0:
-        listItem.innerHTML = `<img src="./img/goldmedal.png" style="width: 30px; height: 30px" /> &nbsp;&nbsp;${score}점`;
+        listItem.innerHTML = `<img src="./img/goldmedal.png" style="width: 30px; height: 30px" /> &nbsp;&nbsp;${entry.name} ${entry.score}점`;
         break;
       case 1:
-        listItem.innerHTML = `<img src="./img/silvermedal.png" style="width: 30px; height: 30px" /> &nbsp;&nbsp;${score}점`;
+        listItem.innerHTML = `<img src="./img/silvermedal.png" style="width: 30px; height: 30px" /> &nbsp;&nbsp;${entry.name} ${entry.score}점`;
         break;
       case 2:
-        listItem.innerHTML = `<img src="./img/bronzemedal.png" style="width: 30px; height: 30px" /> &nbsp;&nbsp;${score}점`;
+        listItem.innerHTML = `<img src="./img/bronzemedal.png" style="width: 30px; height: 30px" /> &nbsp;&nbsp;${entry.name} ${entry.score}점`;
         break;
       default:
-        listItem.innerHTML = `${index + 1}등 &nbsp;&nbsp; ${score}점`;
+        listItem.innerHTML = `${index + 1}등 &nbsp;&nbsp; ${entry.name} ${
+          entry.score
+        }점`;
     }
     rankingList.appendChild(listItem);
   });
-}
+};
+
+let flag = false;
+
+const blink = () => {
+  let vision = flag ? "none" : "block";
+  document.getElementById("coinP").style.display = vision;
+  flag = !flag;
+};
+window.addEventListener("load", () => {
+  setInterval(blink, 750);
+  readRanking();
+});
+
+const savescore = (name, score) => {
+  return database
+    .ref("ranking/" + name)
+    .set({
+      name: name,
+      score: score,
+    })
+    .then(() => {
+      // 점수 저장 후 랭킹 다시 읽기
+      return readRanking();
+    });
+};
+
+const readRanking = () => {
+  return database
+    .ref("ranking/")
+    .once("value")
+    .then((res) => {
+      const data = res.val();
+      ranking = Object.values(data).sort((a, b) => b.score - a.score);
+      updateRanking();
+    });
+};

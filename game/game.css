@@ -47,14 +47,23 @@
   font-family: MaplestoryOTFBold;
   color: #fcf6f5;
   border: #7b9acc;
-  top: 150%;
+  position: fixed; /* 고정된 위치 */
+  bottom: 400px;
   left: 50%;
-  position: absolute;
-  transform: translate(-50%, 250%);
+  transform: translateX(-50%);
   cursor: pointer;
 }
 #modalOpen:hover {
   background-color: #b3cde8;
+}
+
+#insertcoin p {
+  text-align: center;
+  color: #7b9acc;
+  font-family: MaplestoryOTFBold;
+  font-size: 35px;
+  display: none;
+  margin-top: 250px;
 }
 
 .question {
@@ -146,4 +155,20 @@
   padding: 10px;
   font-family: MaplestoryOTFBold;
   text-align: left;
+}
+
+.progress-container {
+  width: 100%;
+  background-color: #e0e0e0;
+  border-radius: 25px;
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  width: 0%;
+  height: 20px;
+  background-color: #7b9acc;
+  border-radius: 25px;
+  text-align: center;
+  color: white;
 }

@@ -192,7 +192,9 @@ const checkAnswer = (isCorrect) => {
     }
 
     updateRanking(score);
-    savescore(sessionStorage.getItem("name"), score);
+    if (sessionStorage.getItem("name")) {
+      savescore(sessionStorage.getItem("name"), score);
+    }
     modal.style.display = "none";
   }
 };

@@ -102,15 +102,3 @@ loginBtn.addEventListener("click", () => {
   const pw = frm[1].value; // input태그에서 입력받은 pw값
   readUserData(id, pw); // input태그에서 받은 값들 readUserData로 넘기고 함수실행
 });
-
-if (sessionStorage.getItem("id")) {
-  // sessionStorge에 id값이 존재하는지 확인
-  document.getElementById("login_out").innerText = "Logout"; // 존재할경우 sidenav의 login을 logout으로변경
-  const logoutBtn = document.getElementById("logoutBtn"); // a태그 가져오기
-  logoutBtn.addEventListener("click", () => {
-    // 이벤트 걸어주기
-    logoutBtn.href = "Login.html"; // 로그아웃버튼일때 이동하고싶은 주소 지정
-    sessionStorage.removeItem("id"); // 세션에 담은 id값 삭제
-    sessionStorage.removeItem("name"); // 세션에 담은 name값 삭제
-  });
-}

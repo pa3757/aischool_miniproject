@@ -1,4 +1,17 @@
+/* -
+-*-~*~-*-*-~*~-*-*-~*~* |
+●▬▬▬▬▬▬▬๑۩۩๑▬▬▬▬▬▬▬●
+Made by ~
+Areal Alien ❥ 雷克斯
+●▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬●
+──────▄▀▄─────▄▀▄
+─────▄█░░▀▀▀▀▀░░█▄
+─▄▄──█░░░░░░░░░░░█──▄▄
+█▄▄█─█░░▀░░┬░░▀░░█─█▄▄█
+-*-~*~-*-*-~*~-*-*-~*~* |
+- */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
 @font-face {
   font-family: "MaplestoryOTFBold";
   src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFBold.woff")
@@ -11,6 +24,13 @@
   src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
     format("woff");
   font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Freesentation-9Black";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-9Black.woff2")
+    format("woff2");
+  font-weight: 500;
   font-style: normal;
 }
 
@@ -285,6 +305,7 @@ select {
   overflow-y: auto;
   overflow-x: hidden;
   box-sizing: border-box;
+  z-index: 10;
 }
 #navbar:hover {
   width: 16em;
@@ -335,7 +356,7 @@ select {
   padding: 0 0.5em;
   width: 100%;
   cursor: pointer;
-  font-family: "Poppins", "Pretendard-Regular", sans-serif;
+  font-family: "Roboto Condensed", "Pretendard-Regular", sans-serif;
 }
 .navbar-item-inner {
   padding: 1.5em 0;

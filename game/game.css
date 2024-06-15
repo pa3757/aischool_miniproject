@@ -1,10 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
+
 @font-face {
-  font-family: "MaplestoryOTFBold";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFBold.woff")
+  font-family: "Pretendard-Regular";
+  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Black.woff")
     format("woff");
-  font-weight: normal;
+  font-weight: 700;
   font-style: normal;
 }
+
 @font-face {
   font-family: "Pretendard-Regular";
   src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
@@ -12,6 +16,7 @@
   font-weight: 400;
   font-style: normal;
 }
+
 @keyframes slideIn {
   from {
     transform: translateY(100%);
@@ -22,10 +27,13 @@
     opacity: 1;
   }
 }
+
 #gameTitle {
-  font-family: MaplestoryOTFBold;
+  font-family: "Poppins", "Pretendard-Regular", sans-serif;
+
   color: #7b9acc;
   font-size: 50px;
+  font-weight: 700;
 }
 .content {
   text-align: center;
@@ -44,7 +52,8 @@
   height: 100px;
   border-radius: 20px;
   font-size: large;
-  font-family: MaplestoryOTFBold;
+  font-family: "Poppins", "Pretendard-Regular", sans-serif;
+  font-weight: 400;
   color: #fcf6f5;
   border: #7b9acc;
   position: fixed; /* 고정된 위치 */
@@ -60,7 +69,8 @@
 #insertcoin p {
   text-align: center;
   color: #7b9acc;
-  font-family: MaplestoryOTFBold;
+  font-family: "Poppins", "Pretendard-Regular", sans-serif;
+  font-weight: 700;
   font-size: 35px;
   display: none;
   margin-top: 250px;
@@ -92,7 +102,8 @@
   height: 150px;
   width: 300px;
   margin: 10px;
-  font-family: Pretendard-Regular;
+  font-family: "Poppins", "Pretendard-Regular", sans-serif;
+  font-weight: 400;
   box-sizing: border-box; /* 패딩과 테두리를 포함한 너비 계산 */
 }
 
@@ -123,7 +134,8 @@
   border: 1px solid #888;
   width: 80%;
   border-radius: 10px;
-  font-family: MaplestoryOTFBold;
+  font-family: "Poppins", "Pretendard-Regular", sans-serif;
+  font-weight: 400;
   height: 450px;
   animation: slideIn 1s ease-out;
 }
@@ -153,7 +165,8 @@
   border: 1px solid #7b9acc;
   border-radius: 10px 0 0 10px;
   padding: 10px;
-  font-family: MaplestoryOTFBold;
+  font-family: "Poppins", "Pretendard-Regular", sans-serif;
+  font-weight: 400;
   text-align: left;
 }
 

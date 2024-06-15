@@ -30,19 +30,9 @@
       <ul class="navbar-items flexbox-col">
         <li class="navbar-logo flexbox-left">
           <a class="navbar-item-inner flexbox">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              id="Layer_1"
-              data-name="Layer 1"
-              viewBox="0 0 1438.88 1819.54"
-            >
-              <polygon
-                points="925.79 318.48 830.56 0 183.51 1384.12 510.41 1178.46 925.79 318.48"
-              />
-              <polygon
-                points="1438.88 1663.28 1126.35 948.08 111.98 1586.26 0 1819.54 1020.91 1250.57 1123.78 1471.02 783.64 1663.28 1438.88 1663.28"
-              />
-            </svg>
+            <div class="navbar-item-inner-icon-wrapper flexbox">
+              <img src="../logo.png" alt="" height="40px" width="40px" />
+            </div>
           </a>
         </li>
         <li class="navbar-item flexbox-left">
@@ -93,11 +83,36 @@
           </a>
         </li>
         <li class="navbar-item flexbox-left">
-          <a class="navbar-item-inner flexbox-left" href="index.html">
+          <a
+            class="navbar-item-inner flexbox-left"
+            href="https://www.naver.com"
+          >
+            <div class="navbar-item-inner-icon-wrapper flexbox">
+              <ion-icon name="camera-outline" size="large"></ion-icon>
+            </div>
+            <span class="link-text" data-i18n="photo_title">Photo Zone</span>
+          </a>
+        </li>
+        <li class="navbar-item flexbox-left">
+          <a
+            class="navbar-item-inner flexbox-left"
+            href="https://www.naver.com"
+          >
             <div class="navbar-item-inner-icon-wrapper flexbox">
               <ion-icon name="game-controller-outline" size="large"></ion-icon>
             </div>
             <span class="link-text" data-i18n="game">Quiz Game</span>
+          </a>
+        </li>
+        <li class="navbar-item flexbox-left">
+          <a
+            class="navbar-item-inner flexbox-left"
+            href="https://www.naver.com"
+          >
+            <div class="navbar-item-inner-icon-wrapper flexbox">
+              <ion-icon name="globe-outline" size="large"></ion-icon>
+            </div>
+            <span class="link-text" data-i18n="site">Interactive Sites</span>
           </a>
         </li>
         <li class="navbar-item flexbox-left">
@@ -124,35 +139,31 @@
     <div class="container">
       <div class="wrapper">
         <div class="content">
-          <div id="gameTitle">퀴즈 게임</div>
-          <div id="insertcoin"><p id="coinP">INSERT COIN</p></div>
-          <button id="modalOpen">게임 시작</button>
+          <div id="gameTitle" data-i18n="quizgame">Quiz game</div>
+          <div id="insertcoin">
+            <p id="coinP" data-i18n="insertcoin">INSERT COIN</p>
+          </div>
+          <button id="modalOpen" data-i18n="gamestart">Game Start</button>
 
           <!-- The Modal -->
           <div id="myModal" class="modal">
             <!-- Modal content -->
             <div class="modal-content">
               <span class="close">&times;</span>
-              <p class="question" id="question">
-                Q1: 인터랙티브 미디어란 무엇을 의미하나요?
-              </p>
+              <p class="question" id="question" data-i18n="question">q1</p>
               <div id="answerBox">
                 <div class="progress-container">
                   <div class="progress-bar" id="progressBar"></div>
                 </div>
-                <button class="answer" onclick="checkAnswer(1)">
-                  사용자가 콘텐츠와 상호작용할 수 있는 미디어
-                </button>
-                <button class="answer" onclick="checkAnswer(0)">
-                  일방적으로 전달되는 미디어
-                </button>
+                <button class="answer" onclick="checkAnswer(1)">answer1</button>
+                <button class="answer" onclick="checkAnswer(0)">answer2</button>
               </div>
-              <p id="score">점수: 0</p>
+              <p id="score" data-i18n="score">score : 0</p>
             </div>
           </div>
           <!-- Ranking Section -->
           <div id="ranking">
-            <h3>실시간 랭킹</h3>
+            <h3 data-i18n="ranking">Live Ranking</h3>
             <ul id="rankingList">
               <!-- 랭킹 항목들이 여기에 추가됩니다 -->
             </ul>

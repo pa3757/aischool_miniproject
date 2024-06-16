@@ -150,13 +150,25 @@
             <!-- Modal content -->
             <div class="modal-content">
               <span class="close">&times;</span>
-              <p class="question" id="question" data-i18n="question">q1</p>
+              <p class="question" id="question" data-i18n="questions.q1">q1</p>
               <div id="answerBox">
                 <div class="progress-container">
                   <div class="progress-bar" id="progressBar"></div>
                 </div>
-                <button class="answer" onclick="checkAnswer(1)">answer1</button>
-                <button class="answer" onclick="checkAnswer(0)">answer2</button>
+                <button
+                  class="answer"
+                  onclick="checkAnswer(1)"
+                  data-i18n="answers.q1.0"
+                >
+                  answer1
+                </button>
+                <button
+                  class="answer"
+                  onclick="checkAnswer(0)"
+                  data-i18n="answers.q1.1"
+                >
+                  answer2
+                </button>
               </div>
               <p id="score" data-i18n="score">score : 0</p>
             </div>

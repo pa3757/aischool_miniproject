@@ -109,17 +109,17 @@ const userPanoramaContainer = document.querySelector(
 const userPanorama = document.getElementById("user-panorama");
 const userPanoramaClose = document.getElementById("user-panorama-close");
 
-inputbutton.addEventListener("click", function (event) {
+inputbutton.addEventListener("click", (event) => {
     fileInput.focus();
     return false;
 });
-fileInput.addEventListener("change", function (event) {
-    const file = this.files[0]; // 선택한 파일 가져오기
+fileInput.addEventListener("change", (event) => {
+    const file = event.target.files[0]; // 선택한 파일 가져오기
     if (file) {
         const reader = new FileReader(); // 파일을 읽기 위한 FileReader 객체 생성
 
         // 파일 읽기가 완료되면 실행될 콜백 함수
-        reader.onload = function (e) {
+        reader.onload = (e) => {
             // user-panorama-container hide 삭제
             if (userPanoramaContainer.classList.contains("hide"))
                 userPanoramaContainer.classList.remove("hide");

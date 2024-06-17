@@ -2,57 +2,57 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
 
 body {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
 #intro-container {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #282c34;
-  z-index: -1;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #282c34;
+    z-index: -1;
 }
 
 .intro-content {
-  text-align: center;
-  /* padding-bottom: 2%; */
-  z-index: 0;
+    text-align: center;
+    /* padding-bottom: 2%; */
+    z-index: 0;
 }
 
 .intro-content h1 {
-  font-size: 7em;
-  color: #7b9acc;
-  font-family: "Poppins", sans-serif;
+    font-size: 7em;
+    color: #7b9acc;
+    font-family: "Poppins", sans-serif;
 }
 
 .intro-content a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 .intro-overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  background-color: #fefefe;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: width 2s, height 2s, top 2s, left 2s;
-  /* 확장 속도 설정 */
-  z-index: -1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: #fefefe;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 2s, height 2s, top 2s, left 2s;
+    /* 확장 속도 설정 */
+    z-index: -1;
 }
 
 .expanded {
-  width: 200vw;
-  height: 200vw;
-  top: 50%;
-  left: 50%;
+    width: 250vw;
+    height: 250vw;
+    top: 50%;
+    left: 50%;
 }
 
 /* p {

@@ -102,16 +102,12 @@ startButton.addEventListener("click", async () => {
 
 // 사진 찍기 버튼
 takePhotoButton.addEventListener("click", () => {
-    // // 웹캠이 돌아가지 않으면 사진 부분이 날아감 -> 웹캠이 hide가 아닌 경우에만 작동
-    // if (!video.classList.contains("hide")) {
-    //     return;
-    // }
     // 비디오 오브젝트가 없으면 시작하지 않는다
     if (video.srcObject === null) {
         return;
     }
-    console.log(videoStream);
-    console.log(video.srcObject);
+    // console.log(videoStream);
+    // console.log(video.srcObject);
 
     const context = canvas.getContext("2d");
     let width = 640;
@@ -245,7 +241,7 @@ canvas.addEventListener("click", (e) => {
     }
 });
 
-// 캔버스 이외를 클릭하면 다시 hide
+// 캔버스 이외를 클릭하면 다시 hide 굳이?
 // document.addEventListener("click", (e) => {
 //     if (!canvas.contains(e.target) && selectedSticker) {
 //         cursorSticker.classList.add("hide");
